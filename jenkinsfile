@@ -3,14 +3,12 @@ node {
         git branch: 'main', url: 'https://github.com/Shiva-cloud-dev/Terraform_CICD.git'
     }
     stage('init') {
-        dir('abc1') {
             sh 'terraform init'
-        }
     }
     stage('plan') {
             sh 'terraform plan'
     }
     stage('apply') {
-            sh 'terraform destroy -auto-approve'
+            sh 'terraform apply -auto-approve'
     }
 }
