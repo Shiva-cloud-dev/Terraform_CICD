@@ -8,13 +8,9 @@ node {
         }
     }
     stage('plan') {
-         dir('abc1') {
             sh 'terraform plan'
-        }
     }
     stage('apply') {
-         dir('abc1') {
             sh 'terraform destroy -auto-approve'
-        }
     }
 }
