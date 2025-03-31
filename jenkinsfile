@@ -1,0 +1,20 @@
+node {
+    stage('clone') {
+        git branch: 'main', url: 'https://github.com/Shiva-cloud-dev/Terraform_CICD.git'
+    }
+    stage('init') {
+        dir('abc1') {
+            sh 'terraform init'
+        }
+    }
+    stage('plan') {
+         dir('abc1') {
+            sh 'terraform plan'
+        }
+    }
+    stage('apply') {
+         dir('abc1') {
+            sh 'terraform destroy -auto-approve'
+        }
+    }
+}
